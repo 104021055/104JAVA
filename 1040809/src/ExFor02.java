@@ -8,8 +8,8 @@ System.out.println("½Ð¿é¤J¼Æ¦r");
 int n=scn.nextInt();
 double v1=Math.ceil(n/2);
 double v2=n-v1;
-for(int i=0;i<v1;i++){
-	for(int j=0;j<n-i-1;j++){
+for(int i=0;i<=v1;i++){
+	for(int j=0;j<v1-i;j++){
 		System.out.print(" ");
 	}
 	for(int k=0;k<=2*i;k++){
@@ -17,12 +17,12 @@ for(int i=0;i<v1;i++){
 	}
 	System.out.println();
 }
-for(int l=n;l<v2;l--){
-	for(int m=0;m<n-l-1;m--){
+for(int l=1;l<=v2-1;l++){
+	for(int m=0;m<l;m++){
 		System.out.print(" ");
 	}
-	for(int o=0;o<=2*l;o--){
-		System.out.print(" ");
+	for(int o=0;o<=(v2-l-1)*2;o++){
+		System.out.print("*");
 	}
 	System.out.println();
 }
