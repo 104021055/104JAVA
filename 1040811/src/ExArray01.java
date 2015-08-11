@@ -17,7 +17,6 @@ for(int m=0;m<10;m++){
 	}else{
 		v2++;
 	}
-	System.out.println(data[m]);
 }
 if(a==v1){
 	System.out.println("被你猜到了");
@@ -37,6 +36,9 @@ if(a==v1){
 	}
 }
 System.out.println("偶數有"+v1+"個,奇數有"+v2+"個");
+for(int m=0;m<10;m++){
+	System.out.println(data[m]);
+}
 	}
 	
 }
