@@ -11,16 +11,14 @@ int a=scn.nextInt();
 int v1=0,v2=0;
 int data[]=new int[10];
 for(int m=0;m<10;m++){
-	System.out.println(ran.nextInt(100));
-	data[m]=ran.nextInt();
+	data[m]=ran.nextInt(101);
 	if(data[m]%2==0){
 		v1++;
 	}else{
 		v2++;
 	}
-	System.out.println();
+	System.out.println(data[m]);
 }
-System.out.println("案计Τ"+v1+",计Τ"+v2+"");
 if(a==v1){
 	System.out.println("砆瞦");
 }else{
@@ -38,7 +36,7 @@ if(a==v1){
 		}
 	}
 }
-
+System.out.println("案计Τ"+v1+",计Τ"+v2+"");
 	}
 	
 }
