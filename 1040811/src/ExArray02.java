@@ -20,7 +20,7 @@ public class ExArray02 {
 			}
 			if (flag == false) {
 				i++;
-			}
+			}	
 		}
 		for (i = 0; i < 10; i++) {
 			System.out.println(data[i]);
