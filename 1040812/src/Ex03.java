@@ -28,7 +28,8 @@ if(x=="+"){
 	for(int i=0;i<len;i++){
 		(data1[i])=(char)(data[i]+key);
 	}
-}if(x=="-"){
+}
+if(x=="-"){
 	for(int i=0;i<len;i++){
 		(data1[i])=(char)(data[i]-key);
 	}
