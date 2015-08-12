@@ -34,18 +34,35 @@ for(i=0;i<5;i++){
 for(i=0;i<5;i++){
 	System.out.println(data[i]);
 }
-//上半部分輸出五個亂數
+//輸出五個亂數
 System.out.println("輸入5個數字");
+int data1[]=new int[5];
 int j=0;
-for(j=0;j<5;j++){
-	int sum=scn.nextInt();
-	System.out.println(sum);
-}
 int o=0;
 for(j=0;j<5;j++){
+	data1[j]=scn.nextInt();
+}
+for(j=0;j<5;j++){
 	for(o=j+1;o<5;o++){
-		//整數比大小中
+		if(data1[j]>data1[o]){
+			int change=data1[j];
+			data1[j]=data1[o];
+			data1[o]=change;
+		}
 	}
+}
+for(j=0;j<5;j++){
+	System.out.println(data1[j]);
+}
+//輸出五的輸入的數
+if(data[2]>data1[2]){
+	System.out.println("你輸了");
+}
+if(data[2]==data1[2]){
+	System.out.println("平手");
+}
+if(data[2]<data1[2]){
+	System.out.println("好棒棒~你贏了");
 }
 	}
 
