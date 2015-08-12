@@ -64,6 +64,7 @@ if(data[2]==data1[2]){
 if(data[2]<data1[2]){
 	System.out.println("好棒棒~你贏了");
 }
+//比大小
 	}
 
 }
