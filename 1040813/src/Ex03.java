@@ -9,11 +9,14 @@ int i=scn.nextInt();
 int j=scn.nextInt();
 int l=scn.nextInt();
 int k=scn.nextInt();
+int p=0;
+int q=0;
 if(j!=l){
 	System.out.println("矩陣錯誤");
 }
 int data1[][]=new int[i][j];
 int data2[][]=new int[j][k];
+int dataAnswer[][]=new int[p][q];
 int w=0;
 int x=0;
 int y=0;
@@ -33,10 +36,14 @@ for(y=0;y<j;y++){
 int sum=1;
 for(w=0;w<i;w++){
 	for(z=0;z<k;z++){
-		sum=sum+data1[w][x]*data2[y][z];
+		for(x=0;x<j;x++){
+			dataAnswer[p][q]+=data1[w][x]*data2[y][z];
+		}
+		q++;
 	}
+	p++;
 }
-System.out.println("答案為"+sum);
+System.out.println("答案為"+dataAnswer);
 	}
 
 }
