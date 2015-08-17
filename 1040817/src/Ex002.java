@@ -10,6 +10,7 @@ public class Ex002 {
 		i=rnd.nextInt(1000);
 		while(i>0){
 			System.out.print(fun(i));
+			i--;
 		}
 			}
 			public static int fun(int i){
