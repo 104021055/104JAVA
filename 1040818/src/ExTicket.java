@@ -12,20 +12,38 @@ public class ExTicket {
 		System.out.print("電話");
 		String Tiphone=scn.next();
 		int j=0;
-		int sum=0;
 		while(j<i){
 			System.out.println("品項名稱與價格");
+			Tidata[j] = new Ticket();
+			Tidata[j].a(Tishop);
+			Tidata[j].a(Tiphone);
 			Tidata[j].Tithing(scn.next());
 			Tidata[j].Tipoint(scn.nextInt());
 			j++;
 		}
-
+		j=0;
+		System.out.println("列印發票");
+		System.out.println(Tishop);
+		System.out.println("電話:"+Tiphone);
+		
+		while(j<i){	
+			System.out.println("第"+(j+1)+"項商品：");
+			Tidata[j].show();
+			j++;
+		}
+		while(j<i){	
+			Tidata[j].show2();
+		}
+		
 	}
 
 }
 class Ticket{
 	private String Tithing,Tiphone,Tishop;
 	private int Tipoint;
+	public Ticket(){
+		
+	}
 	public Ticket(String thing,String shop,String phone,int point){
 		Tithing=thing;
 		Tiphone=phone;
@@ -35,6 +53,14 @@ class Ticket{
 	public void Tithing(String str){
 		Tithing=str;
 	}
+	
+	public void a(String str){
+		Tishop=str;
+	}
+	public void b(String str){
+		Tiphone=str;
+	}
+	
 	public String getthing(){
 		return Tithing;
 	}
@@ -57,10 +83,13 @@ class Ticket{
 		return Tipoint;
 	}
 	public void show(){
-		System.out.println(Tishop);
-		System.out.println("電話:"+Tiphone);
 		System.out.println("品項名稱:"+Tithing);
 		System.out.println("價格:"+Tipoint);
+	}
+	public void show2(){
+		int sum=0;
+		sum+=Tipoint;
+		System.out.println("總價格為"+sum);
 	}
 	
 }
