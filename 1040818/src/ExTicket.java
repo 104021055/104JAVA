@@ -7,15 +7,16 @@ public class ExTicket {
 		System.out.print("請問買幾項商品");
 		int i=scn.nextInt();
 		Ticket Tidata[]=new Ticket[i];
-		Tidata[i].Tishop("亞大");
-		Tidata[i].Tiphone("0423323456");
+		System.out.print("店名");
+		String Tishop=scn.next();
+		System.out.print("電話");
+		String Tiphone=scn.next();
 		int j=0;
 		int sum=0;
 		while(j<i){
-			System.out.println("品項名稱");
-			Tidata[i].Tithing(scn.next());
-			System.out.print("價格");
-			Tidata[i].Tipoint(scn.nextInt());
+			System.out.println("品項名稱與價格");
+			Tidata[j].Tithing(scn.next());
+			Tidata[j].Tipoint(scn.nextInt());
 			j++;
 		}
 
@@ -54,6 +55,12 @@ class Ticket{
 	}
 	public int getpoint(){
 		return Tipoint;
+	}
+	public void show(){
+		System.out.println(Tishop);
+		System.out.println("電話:"+Tiphone);
+		System.out.println("品項名稱:"+Tithing);
+		System.out.println("價格:"+Tipoint);
 	}
 	
 }
