@@ -25,14 +25,15 @@ public class ExTicket {
 		System.out.println("列印發票");
 		System.out.println(Tishop);
 		System.out.println("電話:"+Tiphone);
-		
+		int sum=0;
 		while(j<i){	
 			System.out.println("第"+(j+1)+"項商品：");
 			Tidata[j].show();
+			sum += Tidata[j].getpoint();
 			j++;
-		}
-		while(j<i){	
-			Tidata[j].show2();
+			if(j==i){
+				System.out.print("總價格"+sum);
+			}
 		}
 		
 	}
@@ -86,10 +87,12 @@ class Ticket{
 		System.out.println("品項名稱:"+Tithing);
 		System.out.println("價格:"+Tipoint);
 	}
+	//
 	public void show2(){
 		int sum=0;
 		sum+=Tipoint;
 		System.out.println("總價格為"+sum);
 	}
+	//
 	
 }

@@ -6,7 +6,7 @@ public class ExArray03 {
 		// TODO Auto-generated method stub
 Scanner scn=new Scanner(System.in);
 Random rnd=new Random();
-int data[]=new int[100];
+int data[]=new int[10];
 boolean flag=false;
 int i=0,j=0,k=0;
 while(i<10){

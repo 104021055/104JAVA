@@ -10,7 +10,7 @@ fun(i);
 	}
 	public static void fun(float i){
 		int a=0;
-		while(i>1){
+		while(i>=1){
 			i=i/10;
 			a++;
 		}
