@@ -2,18 +2,20 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Random;
+import javax.swing.Timer.*;
 public class MainFrame2 extends JFrame{
-//	private MainFrame2 frm=new MainFrame2();
 	private JButton jbtnStart=new JButton("Start");
 	private Container cp;
-	private JTextField jtf=new JTextField("0");
+	private JTextField jtf=new JTextField("Time");
 	private JPanel jpnl1=new JPanel();
 	private JButton jbtns[]=new JButton[9];
 	private int data[] = new int[9];
+	private int n=0;
+	Timer timer=new Timer(1000,new ActionListener(){
+		public void actionPerformed(ActionEvent ae){
+			jtf.setText("Time:"+(++n));
+		}});
 	private int count = 1;
-//	private Dialog dlg=new Dialog(frm);
-//	private Button btnOK=new Button("繼續遊戲");
-//	private Button btnEXIT=new Button("結束遊戲");
 	public MainFrame2(){
 		initComp();
 	}
@@ -22,7 +24,7 @@ public class MainFrame2 extends JFrame{
 		this.setBounds(150,100,600,400);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		cp.setLayout(new BorderLayout(5,5));
-		jtf.setBackground(Color.gray);
+		jtf.setBackground(Color.black);
 		jtf.setHorizontalAlignment(JTextField.CENTER);
 		jtf.setFont(new Font("Times New Roman",Font.BOLD,20));
 		jtf.setEnabled(false);
@@ -41,19 +43,19 @@ public class MainFrame2 extends JFrame{
 			jbtns[i].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
 					JButton jbtn=(JButton)ae.getSource();
-					jtf.setText(jbtn.getText());
-					if(count == Integer.parseInt(jtf.getText())){
+					if(count == Integer.parseInt(jbtn.getText())){
 						count++;
 						jbtn.setBackground(Color.pink);
 						jbtn.setEnabled(false);
 					}else{
-//						Button btn=(Button)ae.getSource();
 						if(count != Integer.parseInt(jtf.getText())){
 							popFrame("遊戲失敗");
-//							dlg.setLocation(120,80);
-//							dlg.setVisible(true);
 						}
 						
+					}
+					if(count>9){
+						timer.stop();
+						popFrame(n+"秒");
 					}
 				}
 			});
@@ -63,6 +65,7 @@ public class MainFrame2 extends JFrame{
 		cp.add(jbtnStart,BorderLayout.SOUTH);
 		jbtnStart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent a){
+				timer.start();
 				for(int i=0;i<9;i++){
 					jbtns[i].setBackground(Color.black);
 				}
