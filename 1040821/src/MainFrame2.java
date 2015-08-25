@@ -79,7 +79,7 @@ public class MainFrame2 extends JFrame{
 				"您是否繼續?","問題", JOptionPane.YES_NO_OPTION);
 		if(n == JOptionPane.YES_OPTION){
 			for(int i=0;i<9;i++){
-				jbtns[i].setBackground(Color.black);
+				count=1;
 			}//初始化遊戲並繼續進行
 		}else{
 			System.exit(0);	//結束遊戲
