@@ -78,9 +78,9 @@ public class MainFrame2 extends JFrame{
 		int n = JOptionPane.showConfirmDialog(null,
 				"您是否繼續?","問題", JOptionPane.YES_NO_OPTION);
 		if(n == JOptionPane.YES_OPTION){
-			for(int i=0;i<9;i++){
-				count=1;
-			}//初始化遊戲並繼續進行
+//			for(int i=0;i<9;i++){
+//				count=1;
+//			}//初始化遊戲並繼續進行
 		}else{
 			System.exit(0);	//結束遊戲
 		}//失敗時顯示小視窗繼續或結束
