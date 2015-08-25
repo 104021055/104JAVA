@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.Random;
 public class MainFrame2 extends JFrame{
+//	private MainFrame2 frm=new MainFrame2();
 	private JButton jbtnStart=new JButton("Start");
 	private Container cp;
 	private JTextField jtf=new JTextField("0");
@@ -10,6 +11,9 @@ public class MainFrame2 extends JFrame{
 	private JButton jbtns[]=new JButton[9];
 	private int data[] = new int[9];
 	private int count = 1;
+//	private Dialog dlg=new Dialog(frm);
+//	private Button btnOK=new Button("繼續遊戲");
+//	private Button btnEXIT=new Button("結束遊戲");
 	public MainFrame2(){
 		initComp();
 	}
@@ -41,8 +45,15 @@ public class MainFrame2 extends JFrame{
 					if(count == Integer.parseInt(jtf.getText())){
 						count++;
 						jbtn.setBackground(Color.pink);
+						jbtn.setEnabled(false);
 					}else{
-						System.out.println("X");
+//						Button btn=(Button)ae.getSource();
+						if(count != Integer.parseInt(jtf.getText())){
+							popFrame("遊戲失敗");
+//							dlg.setLocation(120,80);
+//							dlg.setVisible(true);
+						}
+						
 					}
 				}
 			});
@@ -58,6 +69,18 @@ public class MainFrame2 extends JFrame{
 			}
 		});
 		
+	}
+	private void popFrame(String message){
+		JOptionPane.showMessageDialog(null,message);
+		int n = JOptionPane.showConfirmDialog(null,
+				"您是否繼續?","問題", JOptionPane.YES_NO_OPTION);
+		if(n == JOptionPane.YES_OPTION){
+			for(int i=0;i<9;i++){
+				jbtns[i].setBackground(Color.black);
+			}//初始化遊戲並繼續進行
+		}else{
+			System.exit(0);	//結束遊戲
+		}//失敗時顯示小視窗繼續或結束
 	}
 	private int[] rndNum(){
 		int i=0;
