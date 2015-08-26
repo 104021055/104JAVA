@@ -4,11 +4,13 @@ import javax.swing.*;
 import java.util.Random;
 import javax.swing.Timer.*;
 public class MainFrame2 extends JFrame{
+//	private MyButton mbtn[]=new MyButton[9];
 	private JButton jbtnStart=new JButton("Start");
 	private Container cp;
 	private JTextField jtf=new JTextField("Time");
 	private JPanel jpnl1=new JPanel();
-	private JButton jbtns[]=new JButton[9];
+	private MyButton jbtns[]=new MyButton[9];
+//	private MyButton jbtns1[]=new MyButton[9];
 	private int data[] = new int[9];
 	private int n=0;
 	Timer timer=new Timer(1000,new ActionListener(){
@@ -34,7 +36,7 @@ public class MainFrame2 extends JFrame{
 		cp.add(jpnl1,BorderLayout.CENTER);
 		data = rndNum();
 		for(int i=0;i<9;i++){
-			jbtns[i]=new JButton(""+data[i]);
+			jbtns[i]=new MyButton(""+data[i]);
 			jbtns[i].setOpaque(true);
 			jbtns[i].setBackground(Color.pink);
 			jbtns[i].setHorizontalAlignment(JButton.CENTER);
