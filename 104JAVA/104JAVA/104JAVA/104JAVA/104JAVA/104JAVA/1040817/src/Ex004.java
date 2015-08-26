@@ -15,12 +15,11 @@ public class Ex004 {
 		gcd(x,y);
 	}
 	public static int gcd(int x,int y){
-		if(x/y<=0){
-			System.out.print(x%y);
+		if(y==0){
+			return x;
 		}else{
-			x=x%y;
+			return gcd(y,x%y);
 		}
-		return gcd(y, x);
 	}
 
 }

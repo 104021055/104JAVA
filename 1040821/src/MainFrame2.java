@@ -48,11 +48,17 @@ public class MainFrame2 extends JFrame{
 						jbtn.setBackground(Color.pink);
 						jbtn.setEnabled(false);
 					}else{
-						if(count != Integer.parseInt(jtf.getText())){
+						if(count != Integer.parseInt(jbtn.getText())){
 							popFrame("遊戲失敗");
 						}
 						
 					}
+					
+//					 if ((jbtn.getKeyCode() == KeyEvent.VK_ENTER)&&( jbtn.getID() == KeyEvent.KEY_PRESSED)  
+//                             ) {  
+//						 
+//                     }
+					
 					if(count>9){
 						timer.stop();
 						popFrame(n+"秒");
@@ -73,14 +79,33 @@ public class MainFrame2 extends JFrame{
 		});
 		
 	}
+	private void reset(){		//重製
+		count=1;
+		data = rndNum();
+		for(int i=0;i<9;i++){
+			jbtns[i].setText(""+data[i]);
+			jbtns[i].setOpaque(true);
+			jbtns[i].setBackground(Color.pink);
+			jbtns[i].setForeground(Color.black);
+			jbtns[i].setEnabled(true);
+		}
+		jtf.setText("Time");
+		n=0;
+		repaint();
+		
+		//timer.stop();
+		//Stop Timer
+	}
 	private void popFrame(String message){
+		timer.stop();
 		JOptionPane.showMessageDialog(null,message);
 		int n = JOptionPane.showConfirmDialog(null,
-				"您是否繼續?","問題", JOptionPane.YES_NO_OPTION);
+				"您是否繼續?","問題", JOptionPane.YES_OPTION,JOptionPane.NO_OPTION,null);
+			
 		if(n == JOptionPane.YES_OPTION){
-//			for(int i=0;i<9;i++){
-//				count=1;
-//			}//初始化遊戲並繼續進行
+			for(int i=0;i<9;i++){
+				reset();
+			}//初始化遊戲並繼續進行
 		}else{
 			System.exit(0);	//結束遊戲
 		}//失敗時顯示小視窗繼續或結束

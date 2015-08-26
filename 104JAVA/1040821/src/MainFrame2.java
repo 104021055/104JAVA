@@ -2,13 +2,19 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Random;
+import javax.swing.Timer.*;
 public class MainFrame2 extends JFrame{
 	private JButton jbtnStart=new JButton("Start");
 	private Container cp;
-	private JTextField jtf=new JTextField("0");
+	private JTextField jtf=new JTextField("Time");
 	private JPanel jpnl1=new JPanel();
 	private JButton jbtns[]=new JButton[9];
 	private int data[] = new int[9];
+	private int n=0;
+	Timer timer=new Timer(1000,new ActionListener(){
+		public void actionPerformed(ActionEvent ae){
+			jtf.setText("Time:"+(++n));
+		}});
 	private int count = 1;
 	public MainFrame2(){
 		initComp();
@@ -18,7 +24,7 @@ public class MainFrame2 extends JFrame{
 		this.setBounds(150,100,600,400);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		cp.setLayout(new BorderLayout(5,5));
-		jtf.setBackground(Color.gray);
+		jtf.setBackground(Color.black);
 		jtf.setHorizontalAlignment(JTextField.CENTER);
 		jtf.setFont(new Font("Times New Roman",Font.BOLD,20));
 		jtf.setEnabled(false);
@@ -37,12 +43,19 @@ public class MainFrame2 extends JFrame{
 			jbtns[i].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
 					JButton jbtn=(JButton)ae.getSource();
-					jtf.setText(jbtn.getText());
-					if(count == Integer.parseInt(jtf.getText())){
+					if(count == Integer.parseInt(jbtn.getText())){
 						count++;
 						jbtn.setBackground(Color.pink);
+						jbtn.setEnabled(false);
 					}else{
-						System.out.println("X");
+						if(count != Integer.parseInt(jtf.getText())){
+							popFrame("遊戲失敗");
+						}
+						
+					}
+					if(count>9){
+						timer.stop();
+						popFrame(n+"秒");
 					}
 				}
 			});
@@ -52,12 +65,25 @@ public class MainFrame2 extends JFrame{
 		cp.add(jbtnStart,BorderLayout.SOUTH);
 		jbtnStart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent a){
+				timer.start();
 				for(int i=0;i<9;i++){
 					jbtns[i].setBackground(Color.black);
 				}
 			}
 		});
 		
+	}
+	private void popFrame(String message){
+		JOptionPane.showMessageDialog(null,message);
+		int n = JOptionPane.showConfirmDialog(null,
+				"您是否繼續?","問題", JOptionPane.YES_NO_OPTION);
+		if(n == JOptionPane.YES_OPTION){
+//			for(int i=0;i<9;i++){
+//				count=1;
+//			}//初始化遊戲並繼續進行
+		}else{
+			System.exit(0);	//結束遊戲
+		}//失敗時顯示小視窗繼續或結束
 	}
 	private int[] rndNum(){
 		int i=0;
