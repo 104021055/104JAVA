@@ -116,6 +116,7 @@ public class MainFrame2 extends JFrame {
 							jbtn.setBackground(color1);
 							jbtn.setEnabled(false);
 						} else {
+							
 							if (count != Integer.parseInt(jbtn.getText())) {
 								jbtn.setBackground(color1);
 								popFrame("¹CÀ¸¥¢±Ñ");
