@@ -77,18 +77,21 @@ public class MainFrame2 extends JFrame{
 	        });
 			item3.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
+	                setBtnColor(3);
 //	            	jbtns[i].setBackground(Color.yellow);
 	            }
 
 	        });
 			item4.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
+	            setBtnColor(4);
 	//            	jbtns[i].setBackground(Color.red);
 	            }
 
 	        });
 			item5.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
+	            setBtnColor(5);
 //	            	jbtns[i].setBackground(Color.green);
 	            }
 
@@ -184,7 +187,14 @@ public class MainFrame2 extends JFrame{
 		case 2:
 			color1 = Color.PINK;
 			break;
-		case 3: 
+		case 3:
+		color3=Color.yellow;
+			break;
+		case 4:
+			color4=Color.red;
+			break;
+		case 5:
+			color5=Color.green;
 			break;
 		}
 		for(int i=0;i < 9;i++){
