@@ -6,6 +6,13 @@ import javax.swing.Timer.*;
 public class MainFrame2 extends JFrame{
 //	private MyButton mbtn[]=new MyButton[9];
 	private JButton jbtnStart=new JButton("Start");
+	private JMenuBar menuBar=new JMenuBar();
+	private JMenu menu=new JMenu("Color");
+	private JMenuItem item1=new JMenuItem("blue");
+	private JMenuItem item2=new JMenuItem("pink");
+	private JMenuItem item3=new JMenuItem("yellow");
+	private JMenuItem item4=new JMenuItem("red");
+	private JMenuItem item5=new JMenuItem("green");
 	private Container cp;
 	private JTextField jtf=new JTextField("Time");
 	private JTextField jtf2=new JTextField("規則:請由1到9依許翻出");
@@ -25,6 +32,15 @@ public class MainFrame2 extends JFrame{
 	}
 	private void initComp(){
 		cp=this.getContentPane();
+		setJMenuBar(menuBar);
+		setVisible(true);
+		menuBar.setSize(400,200);
+		menuBar.add(menu);
+		menu.add(item1);
+		menu.add(item2);
+		menu.add(item3);
+		menu.add(item4);
+		menu.add(item5);
 		this.setBounds(150,100,600,400);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		cp.setLayout(new BorderLayout(5,5));
@@ -34,11 +50,83 @@ public class MainFrame2 extends JFrame{
 		jtf.setEnabled(false);
 		cp.add(jtf,BorderLayout.NORTH);
 		jtf2.setBackground(Color.black);
-//		jtf2.setForeground(Color.black);
 		jtf2.setHorizontalAlignment(JTextField.CENTER);
-//		jtf2.setFont(new Font("Times New Roman",Font.BOLD,20));
 		jtf2.setEnabled(false);
 		cp.add(jtf2,BorderLayout.WEST);
+		
+		/*for(int i=0;i<9;i++){
+			jbtns[i]=new MyButton(""+data[i]);
+			jbtns[i].setOpaque(true);
+//			jbtns[i].setBackground(Color.pink);
+			jbtns[i].setHorizontalAlignment(JButton.CENTER);
+			jbtns[i].setFont(new Font("Times New Roman",Font.BOLD,25));
+			jbtns[i].setForeground(Color.black);
+			item1.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	            	setBtnColor(1);
+//	            	jbtns[i].setBackground(Color.blue);
+	            }
+
+	        });
+			item2.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	            	setBtnColor(2);
+//	            	jbtns[i].setBackground(Color.pink);
+	            }
+
+	        });
+			item3.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+//	            	jbtns[i].setBackground(Color.yellow);
+	            }
+
+	        });
+			item4.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	//            	jbtns[i].setBackground(Color.red);
+	            }
+
+	        });
+			item5.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+//	            	jbtns[i].setBackground(Color.green);
+	            }
+
+	        
+
+	        });
+		}*/
+		
+		item1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	jbtns[9].setBackground(Color.blue);
+            }
+
+        });
+		item2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	jbtns[9].setBackground(Color.pink);
+            }
+
+        });
+		item3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	jbtns[9].setBackground(Color.yellow);
+            }
+
+        });
+		item4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	jbtns[9].setBackground(Color.red);
+            }
+
+        });
+		item5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	jbtns[9].setBackground(Color.green);
+            }
+
+        });
 		
 		jpnl1.setLayout(new GridLayout(3,3,3,3));
 		cp.add(jpnl1,BorderLayout.CENTER);
@@ -62,13 +150,7 @@ public class MainFrame2 extends JFrame{
 							if(count != Integer.parseInt(jbtn.getText())){
 								popFrame("遊戲失敗");
 							}
-							
 						}
-						
-//						 if ((jbtn.getKeyCode() == KeyEvent.VK_ENTER)&&( jbtn.getID() == KeyEvent.KEY_PRESSED)  
-//	                             ) {  
-//							 
-//	                     }
 						
 						if(count>9){
 							timer.stop();
@@ -92,6 +174,24 @@ public class MainFrame2 extends JFrame{
 		});
 		
 	}
+	
+	/*private void setBtnColor(int x){
+		Color color1 = Color.gray;
+		switch(x){
+		case 1:
+			color1 = Color.BLUE;
+			break;
+		case 2:
+			color1 = Color.PINK;
+			break;
+		case 3: 
+			break;
+		}
+		for(int i=0;i < 9;i++){
+			jbtns[i].setBackground(color1);
+		}
+	}*/
+	
 	private void reset(){		//重製
 		isStart=false;
 		count=1;
