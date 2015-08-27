@@ -8,11 +8,13 @@ public class MainFrame2 extends JFrame{
 	private JButton jbtnStart=new JButton("Start");
 	private Container cp;
 	private JTextField jtf=new JTextField("Time");
+	private JTextField jtf2=new JTextField("規則:請由1到9依許翻出");
 	private JPanel jpnl1=new JPanel();
 	private MyButton jbtns[]=new MyButton[9];
 //	private MyButton jbtns1[]=new MyButton[9];
 	private int data[] = new int[9];
 	private int n=0;
+	private boolean isStart = false;
 	Timer timer=new Timer(1000,new ActionListener(){
 		public void actionPerformed(ActionEvent ae){
 			jtf.setText("Time:"+(++n));
@@ -31,6 +33,12 @@ public class MainFrame2 extends JFrame{
 		jtf.setFont(new Font("Times New Roman",Font.BOLD,20));
 		jtf.setEnabled(false);
 		cp.add(jtf,BorderLayout.NORTH);
+		jtf2.setBackground(Color.black);
+//		jtf2.setForeground(Color.black);
+		jtf2.setHorizontalAlignment(JTextField.CENTER);
+//		jtf2.setFont(new Font("Times New Roman",Font.BOLD,20));
+		jtf2.setEnabled(false);
+		cp.add(jtf2,BorderLayout.WEST);
 		
 		jpnl1.setLayout(new GridLayout(3,3,3,3));
 		cp.add(jpnl1,BorderLayout.CENTER);
@@ -44,26 +52,28 @@ public class MainFrame2 extends JFrame{
 			jbtns[i].setForeground(Color.black);
 			jbtns[i].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
-					JButton jbtn=(JButton)ae.getSource();
-					if(count == Integer.parseInt(jbtn.getText())){
-						count++;
-						jbtn.setBackground(Color.pink);
-						jbtn.setEnabled(false);
-					}else{
-						if(count != Integer.parseInt(jbtn.getText())){
-							popFrame("遊戲失敗");
+					if(isStart){
+						JButton jbtn=(JButton)ae.getSource();
+						if(count == Integer.parseInt(jbtn.getText())){
+							count++;
+							jbtn.setBackground(Color.pink);
+							jbtn.setEnabled(false);
+						}else{
+							if(count != Integer.parseInt(jbtn.getText())){
+								popFrame("遊戲失敗");
+							}
+							
 						}
 						
-					}
-					
-//					 if ((jbtn.getKeyCode() == KeyEvent.VK_ENTER)&&( jbtn.getID() == KeyEvent.KEY_PRESSED)  
-//                             ) {  
-//						 
-//                     }
-					
-					if(count>9){
-						timer.stop();
-						popFrame(n+"秒");
+//						 if ((jbtn.getKeyCode() == KeyEvent.VK_ENTER)&&( jbtn.getID() == KeyEvent.KEY_PRESSED)  
+//	                             ) {  
+//							 
+//	                     }
+						
+						if(count>9){
+							timer.stop();
+							popFrame(n+"秒");
+						}
 					}
 				}
 			});
@@ -73,6 +83,7 @@ public class MainFrame2 extends JFrame{
 		cp.add(jbtnStart,BorderLayout.SOUTH);
 		jbtnStart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent a){
+				isStart = true;
 				timer.start();
 				for(int i=0;i<9;i++){
 					jbtns[i].setBackground(Color.black);
@@ -82,6 +93,7 @@ public class MainFrame2 extends JFrame{
 		
 	}
 	private void reset(){		//重製
+		isStart=false;
 		count=1;
 		data = rndNum();
 		for(int i=0;i<9;i++){

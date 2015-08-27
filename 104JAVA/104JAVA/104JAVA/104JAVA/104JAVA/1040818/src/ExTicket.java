@@ -87,12 +87,5 @@ class Ticket{
 		System.out.println("品項名稱:"+Tithing);
 		System.out.println("價格:"+Tipoint);
 	}
-	//
-	public void show2(){
-		int sum=0;
-		sum+=Tipoint;
-		System.out.println("總價格為"+sum);
-	}
-	//
 	
 }

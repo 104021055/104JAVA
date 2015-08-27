@@ -16,6 +16,12 @@ public class Ex05 {
 
 	}
 	public static void fun(int n,int b){
+		String str="";
+		while(n>=b){
+			str=Integer.toString(n%b)+str;
+			n=n/b;
+		}
+		System.out.println(n+str);
 	}
 
 }
