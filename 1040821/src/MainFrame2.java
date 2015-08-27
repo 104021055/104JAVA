@@ -15,7 +15,7 @@ public class MainFrame2 extends JFrame {
 	private JMenuItem item5 = new JMenuItem("green");
 	private Container cp;
 	private JTextField jtf = new JTextField("Time");
-	private JTextField jtf2 = new JTextField("規則:請由1到9依許翻出");
+	private JTextArea jtf2 = new JTextArea();
 	private JPanel jpnl1 = new JPanel();
 	private MyButton jbtns[] = new MyButton[9];
 	private int data[] = new int[9];
@@ -54,7 +54,8 @@ public class MainFrame2 extends JFrame {
 		jtf.setEnabled(false);
 		cp.add(jtf, BorderLayout.NORTH);
 		jtf2.setBackground(Color.black);
-		jtf2.setHorizontalAlignment(JTextField.CENTER);
+//		jtf2.setHorizontalAlignment(JTextArea.CENTER);
+		jtf2.setText("~~~數字記憶大考驗~~~\n遊戲玩法:\n\n請先記下右側數順序\n再由1~9依序翻出\n\n\n加油喔!!!");
 		jtf2.setEnabled(false);
 		cp.add(jtf2, BorderLayout.WEST);
 
