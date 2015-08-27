@@ -11,7 +11,7 @@ public class MainFrame2 extends JFrame {
 	private JMenuItem item1 = new JMenuItem("blue");
 	private JMenuItem item2 = new JMenuItem("pink");
 	private JMenuItem item3 = new JMenuItem("yellow");
-	private JMenuItem item4 = new JMenuItem("red");
+	private JMenuItem item4 = new JMenuItem("orange");
 	private JMenuItem item5 = new JMenuItem("green");
 	private Container cp;
 	private JTextField jtf = new JTextField("Time");
@@ -150,7 +150,7 @@ public class MainFrame2 extends JFrame {
 		color1 = Color.gray;
 		switch (x) {
 		case 1:
-			color1 = Color.BLUE;
+			color1 = Color.cyan;
 			break;
 		case 2:
 			color1 = Color.PINK;
@@ -159,7 +159,7 @@ public class MainFrame2 extends JFrame {
 			color1 = Color.yellow;
 			break;
 		case 4:
-			color1 = Color.red;
+			color1 = Color.orange;
 			break;
 		case 5:
 			color1 = Color.green;
