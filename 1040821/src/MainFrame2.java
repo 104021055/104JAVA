@@ -103,7 +103,7 @@ public class MainFrame2 extends JFrame {
 		for (int i = 0; i < 9; i++) {
 			jbtns[i] = new MyButton("" + data[i]);
 			jbtns[i].setOpaque(true);
-			jbtns[i].setBackground(Color.pink);
+			jbtns[i].setBackground(Color.gray);
 			jbtns[i].setHorizontalAlignment(JButton.CENTER);
 			jbtns[i].setFont(new Font("Times New Roman", Font.BOLD, 25));
 			jbtns[i].setForeground(Color.black);
@@ -117,6 +117,7 @@ public class MainFrame2 extends JFrame {
 							jbtn.setEnabled(false);
 						} else {
 							if (count != Integer.parseInt(jbtn.getText())) {
+								jbtn.setBackground(color1);
 								popFrame("¹CÀ¸¥¢±Ñ");
 							}
 						}
